@@ -9,7 +9,7 @@ interface MovieModalProps {
 }
 
 function MovieModal({ movie, onClose }: MovieModalProps) {
-  // Escape handler
+  
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === "Escape") {

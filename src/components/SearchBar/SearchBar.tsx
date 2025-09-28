@@ -1,4 +1,4 @@
-import React, { FormEvent, useRef } from "react";
+import { useRef, type FormEvent } from "react";
 import css from "./SearchBar.module.css";
 import toast from "react-hot-toast";
 
@@ -17,7 +17,7 @@ function SearchBar({ onSubmit }: SearchBarProps) {
       return;
     }
     onSubmit(value);
-    // clear input as requested
+    
     if (inputRef.current) {
       inputRef.current.value = "";
     }

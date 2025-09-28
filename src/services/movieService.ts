@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios, { type AxiosResponse } from "axios";
 import type { MovieResponse } from "../types/movie";
 
 const API_URL = "https://api.themoviedb.org/3/search/movie";
