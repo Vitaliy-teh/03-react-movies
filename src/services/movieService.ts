@@ -16,9 +16,9 @@ export async function fetchMovies({
   language = "en-US",
   include_adult = false,
 }: FetchMoviesParams): Promise<MovieResponse> {
-  const token = import.meta.env.VITE_TMDB_TOKEN;
+  const TMDB_TOKEN = import.meta.env.VITE_TMDB_TOKEN;
 
-  if (!token) {
+  if (!TMDB_TOKEN) {
     throw new Error("VITE_TMDB_TOKEN is not defined in environment variables");
   }
 
@@ -30,7 +30,7 @@ export async function fetchMovies({
       include_adult,
     },
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${TMDB_TOKEN}`,
       accept: "application/json",
     },
   };
