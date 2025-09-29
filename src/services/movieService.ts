@@ -1,7 +1,14 @@
 import axios, { type AxiosResponse } from "axios";
-import type { MovieResponse } from "../types/movie";
+import type { Movie } from "../types/movie";
 
 const API_URL = "https://api.themoviedb.org/3/search/movie";
+
+export interface MovieResponse {
+  page: number;
+  results: Movie[];
+  total_pages: number;
+  total_results: number;
+}
 
 export interface FetchMoviesParams {
   query: string;
