@@ -16,7 +16,6 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
 
   const handleSearch = async (query: string) => {
-    
     setMovies([]);
     setError(null);
 
@@ -48,9 +47,17 @@ function App() {
 
   return (
     <div className={css.app}>
-      <Toaster position="top-right" />
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          style: {
+            textAlign: "center",
+          },
+        }}
+      />
+
       <SearchBar
-        onSubmit={(q) => {
+        onSubmit={q => {
           handleSearch(q);
         }}
       />
@@ -59,7 +66,9 @@ function App() {
 
       {!loading && error && <ErrorMessage />}
 
-      {!loading && !error && <MovieGrid movies={movies} onSelect={handleSelect} />}
+      {!loading && !error && (
+        <MovieGrid movies={movies} onSelect={handleSelect} />
+      )}
 
       {selectedMovie && (
         <MovieModal movie={selectedMovie} onClose={handleCloseModal} />
